@@ -3,10 +3,16 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const mongoose = require('mongoose');
 require('dotenv').config();
 
 // app
 const app = express();
+
+// db
+mongoose.connect(process.env.DATABASE_URI, () =>
+  console.log(`Connected to MONGODB...`)
+);
 
 // middleware
 app.use(morgan('dev'));
@@ -24,4 +30,4 @@ app.get('/api', (req, res) => {
 
 // port
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server running on port ${port}`));
+app.listen(port, () => console.log(`Server running on port ${port}...`));
