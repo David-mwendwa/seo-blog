@@ -6,6 +6,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
+require('mongoose').set('strictQuery', true);
+
 const blogRoutes = require('./routes/blog');
 const authRoutes = require('./routes/auth');
 
