@@ -33,9 +33,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
-    salt: {
-      Number,
-    },
+    salt: String,
     about: {
       type: String,
     },
