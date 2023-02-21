@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const shortId = require('shortid');
 const jwt = require('jsonwebtoken');
-const expressJwt = require('express-jwt');
+const { expressjwt } = require('express-jwt');
 
 exports.signup = (req, res) => {
   const { name, email, password } = req.body;
@@ -44,3 +44,15 @@ exports.login = (req, res) => {
     return res.json({ token, user: { _id, username, name, email, role } });
   });
 };
+
+exports.logout = (req, res) => {
+  res.clearCookie('token');
+  res.json({ message: 'logout success' });
+};
+
+// It will check the incoming token secret and compare it to the secret in the env file
+// if the token hasn't expired, it will return true
+exports.requireLogin = expressjwt({
+  secret: process.env.JWT_SECRET,
+  algorithms: ['HS256'],
+});
