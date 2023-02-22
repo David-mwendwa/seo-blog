@@ -7,12 +7,8 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText,
 } from 'reactstrap';
+import { APP_NAME } from '../config';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +18,7 @@ function Header() {
   return (
     <div>
       <Navbar color='light' light expand='md'>
-        <NavbarBrand href='/'>seo-blog</NavbarBrand>
+        <NavbarBrand href='/'>{APP_NAME}</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className='ml-auto' navbar>
@@ -30,9 +26,7 @@ function Header() {
               <NavLink href='#'>About</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href='#'>
-                Blog
-              </NavLink>
+              <NavLink href='#'>Blog</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
