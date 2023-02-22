@@ -17,6 +17,7 @@ class MyDocument extends Document {
             crossorigin='anonymous'
             referrerpolicy='no-referrer'
           />
+          <title>Seo-blog</title>
         </Head>
         <body>
           <Main />
