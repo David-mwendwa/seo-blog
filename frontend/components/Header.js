@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useState } from 'react';
 import {
   Collapse,
@@ -18,15 +19,21 @@ function Header() {
   return (
     <div>
       <Navbar color='light' light expand='md'>
-        <NavbarBrand href='/'>{APP_NAME}</NavbarBrand>
+        <Link href='/'>
+          <NavbarBrand className='font-weight-bold'>{APP_NAME}</NavbarBrand>
+        </Link>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className='ml-auto' navbar>
             <NavItem>
-              <NavLink href='#'>About</NavLink>
+              <Link href='/signup'>
+                <NavLink>Signup</NavLink>
+              </Link>
             </NavItem>
             <NavItem>
-              <NavLink href='#'>Blog</NavLink>
+              <Link href='/login'>
+                <NavLink>Login</NavLink>
+              </Link>
             </NavItem>
           </Nav>
         </Collapse>
