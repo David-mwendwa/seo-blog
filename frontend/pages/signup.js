@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import Layout from '../components/Layout';
+import SignupComponent from '../components/auth/SignupComponent';
 
 const SignUp = () => (
   <Layout>
-    <h2>Sign up</h2>
-    <Link href='/'>Home</Link>
+    <SignupComponent />
   </Layout>
 );
 
